@@ -7,6 +7,7 @@ $ helm repo add datastax https://datastax.github.io/charts
 ```
 
 #### Install cass-operator (data ns)
+```
 $ helm install cass-operator datastax/cass-operator -n data
 NAME: cass-operator
 LAST DEPLOYED: Sun Jan 31 10:43:25 2021
@@ -14,7 +15,7 @@ NAMESPACE: data
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-
+```
 #### Provision Cassandra cluster (data ns)
 ```
 $ kubectl apply -f cluster.yaml
