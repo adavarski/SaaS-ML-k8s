@@ -528,7 +528,13 @@ git clone git@github.com:apk8s/presto-chart.git
 helm upgrade --install presto-data --namespace data --values values.yml ./presto-chart/presto
 kubectl apply -f ./50-ingress.yml
 ```
-
+### no-SQL: Cassandra
+```
+cd ./003-data/4500-cassandra/
+helm repo add datastax https://datastax.github.io/charts
+helm install cass-operator datastax/cass-operator -n data
+kubectl apply -f cluster.yaml
+```
 
 ## Check k8s development cluster:
 
