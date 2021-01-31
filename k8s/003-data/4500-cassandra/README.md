@@ -1,12 +1,12 @@
 ### Apache Cassandra on Kubernetes 
 
-# Install Helm repositories
+#### Install Helm repositories
 ```
 $ helm repo add datastax https://datastax.github.io/charts
 "datastax" has been added to your repositories
 ```
 
-# Install cass-operator (data ns)
+#### Install cass-operator (data ns)
 $ helm install cass-operator datastax/cass-operator -n data
 NAME: cass-operator
 LAST DEPLOYED: Sun Jan 31 10:43:25 2021
@@ -15,13 +15,13 @@ STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 
-# Provision Cassandra cluster
+#### Provision Cassandra cluster (data ns)
 ```
 $ kubectl apply -f cluster.yaml
 cassandradatacenter.cassandra.datastax.com/dc1 created
 
 ```
-Check k8s resources and CLI:
+#### Check k8s resources and cqlsh CLI:
 ```
 $ kubectl get po -n data|grep cluster
 cluster1-dc1-default-sts-0          2/2     Running            0          62s
@@ -55,7 +55,7 @@ Use HELP for help.
 cluster1-superuser@cqlsh>   
   
 ```
-Clean:
+### Clean/Tear down resources:
 ```
 $ kubectl delete -f cluster.yaml 
 cassandradatacenter.cassandra.datastax.com "dc1" deleted
