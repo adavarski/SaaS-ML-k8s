@@ -514,6 +514,15 @@ modelUri: s3://mlflow/artifacts/1/e22b3108e7b04c269d65b3f081f44166/artifacts/mod
 kubectl apply -f ./003-data/1000-seldoncore/000-sd-s3-secret.yml
 kubectl apply -f ./003-data/1000-seldoncore/100-sd-quality.yml
 ```
+
+### no-SQL: Cassandra
+```
+cd ./003-data/4500-cassandra/
+helm repo add datastax https://datastax.github.io/charts
+helm install cass-operator datastax/cass-operator -n data
+kubectl apply -f cluster.yaml
+```
+
 ### DWH: Hive SQL-Engine with MinIO DataLake (s3 Object Storage)
 ```
 kubectl apply -f ./003-data/3000-hive/10-mysql-metadata_backend.yml
@@ -528,13 +537,7 @@ git clone git@github.com:apk8s/presto-chart.git
 helm upgrade --install presto-data --namespace data --values values.yml ./presto-chart/presto
 kubectl apply -f ./50-ingress.yml
 ```
-### no-SQL: Cassandra
-```
-cd ./003-data/4500-cassandra/
-helm repo add datastax https://datastax.github.io/charts
-helm install cass-operator datastax/cass-operator -n data
-kubectl apply -f cluster.yaml
-```
+
 
 ## Check k8s development cluster:
 
