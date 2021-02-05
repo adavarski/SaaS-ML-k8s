@@ -4,7 +4,7 @@
 
 # Managed k8s 
 
-Different cloud provider's managed Kubernetes offerings as examples, using Terraform to create a cluster:
+Different cloud provider's managed Kubernetes offerings as examples, using Terraform to create a k8s cluster:
 
 - AWS: [EKS](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/aws-k8s/EKS)
 - GCP: [GKE](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/gcp-k8s/GKE) 
