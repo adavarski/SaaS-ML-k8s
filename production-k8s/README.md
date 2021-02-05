@@ -8,7 +8,7 @@ Different cloud provider's managed Kubernetes offerings as examples, using Terra
 
 - AWS: [EKS](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/aws-k8s/EKS)
 - GCP: [GKE](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/gcp-k8s/GKE) 
-- Azure: [AKE](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/azure-k8s/AKE)
+- Azure: [AKS](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/azure-k8s/AKS)
 - OCI: [OKE](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/oci-k8s/OKE)
 - DiritalOcean: [DOKS](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/digitalocean-k8s/DOKS)
 
