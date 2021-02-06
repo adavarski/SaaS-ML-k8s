@@ -1,8 +1,8 @@
 
 
-# [KOPS](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/aws-k8s/KOPS): k8s provisioning on AWS (production: default)
+### [KOPS](https://github.com/adavarski/SaaS-ML-k8s/tree/main/production-k8s/aws-k8s/KOPS): k8s provisioning on AWS (production: default)
 
-# Managed k8s 
+### Managed k8s 
 
 Different cloud provider's managed Kubernetes offerings as examples, using Terraform to create a k8s cluster:
 
