@@ -172,7 +172,7 @@ They seems to be completely different animals. Nifi is scalable stream ingestion
 
 Airflow on other hand seems to be workflow orchestrator. It’s main use-case seems to be to schedule and run complex workflow’s.
 
-Usecase in this SaaS ---> Workflows: reding the data from json sources, avro/parquet formats and keep the data in kafka and further picked up spark streaming to do some stream processing, which tool is better:Nifi or Airflow --- > Airflow is more of an orchestration tool, whereas NiFi is built for processing data in distributed fashion. NiFi is the perfect fit for this usecase, you can quickly spin up a NiFi flow without writing any code.
+Usecase in this SaaS ---> Workflows: reding the data from json sources, avro/parquet formats and keep the data in kafka and further picked up spark streaming to do some stream processing, which tool is better:Nifi or Airflow --- > Airflow is more of an orchestration tool, whereas NiFi is built for processing data in distributed fashion. NiFi is the perfect fit for this usecase/workflow, you can quickly spin up a NiFi flow without writing any code.
 
 
 - Apache Nifi: The first in the list of the best ETL tools is an open source project, Apache NiFi. Developed by the Apache Software Foundation, it is based on the concept of Dataflow Programming. This means that this ETL tool allows us to visually assemble programs from boxes and run them almost without coding. So, you don't have to know any programming languages.
