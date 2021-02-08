@@ -177,7 +177,7 @@ Usecase in this SaaS ---> Workflows: reding the data from json sources, avro/par
 
 - Apache Nifi: The first in the list of the best ETL tools is an open source project, Apache NiFi. Developed by the Apache Software Foundation, it is based on the concept of Dataflow Programming. This means that this ETL tool allows us to visually assemble programs from boxes and run them almost without coding. So, you don't have to know any programming languages.
 This ETL tool helps to create long-running jobs and is suited for processing both streaming data and periodic batches. As for manually managed jobs, they are also possible. However, there is a risk to face difficulties while setting them up.
-
+```
 Pros:
 
 Perfect implementation of dataflow programming concept.
@@ -188,12 +188,11 @@ Cons:
 
 Simplistic UI.
 Lack of live monitoring and per-record statistics.
-
-
+```
 
 - Apache Airflow(definition!): This modern platform for designing, creating and tracking workflows is an open source ETL software. It can be used with cloud services, including GCP, Azure, and AWS. There is an opportunity to run Airflow on Kubernetes using Astronomer Enterprise.
 You can code in Python, but not have to worry about XML or drag-and-drop GUIs. The workflows are written in Python, however, the steps themselves can be done in anything you want. Airflow was created as a perfectly flexible task scheduler. One of the top ETL tools is suitable for lots of different purposes. It is used to train ML models, send notifications, track systems, and power functions within various APIs.
-
+```
 Pros:
 
 Suits for different types of tasks.
@@ -204,7 +203,7 @@ Cons:
 
 Isn't suitable for streaming jobs.
 Requires additional operators.
-
+```
 Code-first: write code to generate DAGs dynamically, which is unlike the declarative style of all drag-and-drop and YAML/XML defined tools.
 Python: allows for collaboration with data scientists, and it's more reasonable with Airflow to expect that data scientists could may author their own pipelines.
 
