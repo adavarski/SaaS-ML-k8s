@@ -5,8 +5,6 @@ Image names are: davarski/airflow-base and davarski/airflow-dag.
 
 Airflow UI password can be found in helm/files/secrets/airflow/AFPW
 
-## From here you can copy files and set AWS creds manually 
-
 ### Set up everyhting by hand
 
 Go to the docker/base and build the base img after that go to docker/dag and build the dag image
@@ -75,8 +73,8 @@ And put your credentials into the helm/files/secrets/airflow appropriate files. 
 ## Deploy airflow
 ```
 
-cd into ./helm and run the following cmd
-```
+cd into ./helm 
+# run the following cmd
 helm install airflow-k3s-dev . --namespace development
 ```
 
@@ -87,7 +85,6 @@ NAME                        READY   STATUS    RESTARTS   AGE
 postgres-6c869f86c5-dqw8j   1/1     Running   0          65m
 airflow-77bfd6b5bb-w7628    2/2     Running   0          56s
 $ kubectl port-forward airflow-77bfd6b5bb-w7628 8080:8080 -n development
-
 
 ```
 Airflow UI password can be found in helm/files/secrets/airflow/AFPW
