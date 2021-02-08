@@ -1,12 +1,13 @@
-# Production-like Airflow Development Environment on k3s
-This is a everything you need to deploy Airflow on k3s.
+## Production-like Airflow Development Environment on k3s
+This is a everything you need to deploy Airflow on k3s for development.
 
 Image names are: davarski/airflow-base and davarski/airflow-dag.
 
 Airflow UI password can be found in helm/files/secrets/airflow/AFPW
 
-### Set up everyhting by hand
+## Set up everyhting by hand
 
+### Build docker images
 Go to the docker/base and build the base img after that go to docker/dag and build the dag image
 
 Before you build the your dag image don't forget to add/change the first line to this: FROM davarski/airflow-base
@@ -21,7 +22,7 @@ docker push davarski/airflow-base
 docker push davarski/airflow-dag
 docker push  davarski/airflow-dag:1.0.0
 ```
-## Create namespace for dev
+### Create namespace for development
 ```
 kubectl create namespace development
 ```
@@ -30,13 +31,13 @@ Deploy the PostgreSQL service to create the metadat-databse for Airflow
 kubectl apply -f postgres/ --namespace development
 ```
 
-## Logging
+### Logging
 
 Choose according to your preference. By default the local logging option is used since this is a development environment. 
 
-
 ### Cloud storage logging: deployment.yml file and also modify the airflow.cfg file inside the docker/base folder.
 Create the MyLogConn variable on the Airflow UI, use the same name what is inside the airflow.cfg file.
+
 #### FOR AWS LOGGING ###
 conn id: MyLogConn
 conn type: S3
@@ -54,7 +55,8 @@ Keyfile JSON: the service_account.json  (upload the actual json file)
 ### Install Lens the Kubernetes IDE
 With Lens you can connect to any of your Kubernetes clusters easily and you just have to click on the pod (Airflow task in this case) and click on the first icon from the left in the top right corner. After that in the built-in terminal you'll see the logs.
 
-## The easy way to give cloud access to your scripts
+### The easy way to give cloud access to your scripts
+
 ### For GCP
 Ref: https://airflow.apache.org/docs/apache-airflow-providers-google/stable/connections/gcp.html
 
@@ -70,7 +72,7 @@ env_vars={
 ```
 And put your credentials into the helm/files/secrets/airflow appropriate files. (AWS_ACCESS_KEY_ID, AWS_SECRET_KEY)
 
-## Deploy airflow
+## Deploy airflow helm chart
 ```
 
 cd into ./helm 
@@ -87,10 +89,11 @@ airflow-77bfd6b5bb-w7628    2/2     Running   0          56s
 $ kubectl port-forward airflow-77bfd6b5bb-w7628 8080:8080 -n development
 
 ```
-Airflow UI password can be found in helm/files/secrets/airflow/AFPW
+Note: Airflow UI password can be found in helm/files/secrets/airflow/AFPW
 
-## Deploy new image to our cluster
-### Helm upgrade
+### Deploy new image to our cluster
+
+#### Helm upgrade
 First you have to give some unique tag to your new dag image
 
 Example:
@@ -104,7 +107,7 @@ After this you have to change the image in you cluster
 ```
 helm upgrade airflow-k3s-dev helm/ --install --wait --atomic --set dags_image.tag=modified -n development
 ```
-Note: For DAG example create:
+Note: For DAG example create AWS resource:
 
 ```
 aws configure
@@ -115,13 +118,13 @@ aws secretsmanager describe-secret --secret-id demo
 aws secretsmanager delete-secret --secret-id  --recovery-window-in-days 7
 ```
 
-## Clean up
+### Clean up
 ```
 helm uninstall airflow-k3s-dev --namespace development
 kubectl delete namespace development
 ```
 
-Note: CLI usage
+## CLI usage
 
 With the help of the cli tool you can set aws creds, deploy everything with the base setup, copy dag/project/requirements files and change image on the cluster after you modified any of your project/dag files with only one command.
 Important to check the copied files especially the dag files since this deployment created a namespace called development and deploys everything there. Which mean you have to change the namespace in the KubernetesPodOperator. Also now the image is called: davarski/airflow-dag.
