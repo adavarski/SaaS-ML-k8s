@@ -129,7 +129,7 @@ kubectl delete namespace development
 With the help of the cli tool you can set aws creds, deploy everything with the base setup, copy dag/project/requirements files and change image on the cluster after you modified any of your project/dag files with only one command.
 Important to check the copied files especially the dag files since this deployment created a namespace called development and deploys everything there. Which mean you have to change the namespace in the KubernetesPodOperator. Also now the image is called: davarski/airflow-dag.
 
-
+```
 $ python3 main.py --help
 usage: main.py [-h] [--deploy] [--helm_update]
                [--set_aws_access_id SET_AWS_ACCESS_ID]
@@ -162,3 +162,4 @@ optional arguments:
   --clean_up            Deletes all the Kubernetes objects inside the
                         development namspace.
 
+```
